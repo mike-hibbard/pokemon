@@ -39,7 +39,7 @@ for row in reader:
     pokemon = (row[1],row[3],row[5])
     pokemon_details.append(pokemon)
 
-print(pokemon_details)
+print(pokemon_details[0])
 
 """
  Rules and Game Logic
