@@ -4,6 +4,7 @@
 
 from pathlib import Path
 import csv
+import random
 
 
 # Read and extract Pokemon database
@@ -39,7 +40,19 @@ for row in reader:
     pokemon = (row[1],row[3],row[5])
     pokemon_details.append(pokemon)
 
-print(pokemon_details[0])
+# print(pokemon_details[0])
+
+# A function that randomly chooses a pokemon
+def Find_Pokemon(pokemon_details):
+    
+    # Choose a random pokemon in the database
+    pokemon = random.choice(pokemon_details)
+    print(pokemon)
+    return pokemon
+
+
+
+Find_Pokemon(pokemon_details)
 
 """
  Rules and Game Logic
@@ -70,6 +83,3 @@ print(pokemon_details[0])
  Pokemon is caught and stored in the database.
 
 """
-
-
-print("hey")
