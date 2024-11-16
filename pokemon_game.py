@@ -47,12 +47,54 @@ def Find_Pokemon(pokemon_details):
     
     # Choose a random pokemon in the database
     pokemon = random.choice(pokemon_details)
-    print(pokemon)
+    # print(pokemon)
     return pokemon
 
+# Test
+# Find_Pokemon(pokemon_details)
 
 
-Find_Pokemon(pokemon_details)
+# Game logic
+player = input('\nPlease enter your name: ')
+
+print(f"\n----Welcome {player} - LET'S CATCH SOME POKEMON!----")
+
+# A list of pokemon names caught
+pokemon_caught = []
+
+while True:
+    
+    print("""
+      \nChoose an option
+          1 = Find a new pokemon
+          2 = List all pokemon captured
+          3 = Quit game
+      """)
+
+    command = input()
+
+    # Quit immediately.
+    if command == '3':
+        print("\nThanks for playing!")
+        break
+    
+    # Play the game.
+    elif command == '1':
+        pokemon_found = Find_Pokemon(pokemon_details)
+        print(f"\nYou found {pokemon_found[0]}!")
+
+       # Collect only the pokemon's name
+        pokemon_caught.append(pokemon_found[0])
+
+    # Print pokemon caught so far
+    elif command == '2':
+        print("'\nYou have found...")
+        for pokemon in pokemon_caught:
+            print(pokemon)
+
+    else:
+        print("\nIncorrect command.")
+
 
 """
  Rules and Game Logic
