@@ -5,6 +5,7 @@
 from pathlib import Path
 import csv
 import random
+import game_art
 
 
 # Read and extract Pokemon database
@@ -55,6 +56,7 @@ def Find_Pokemon(pokemon_details):
 
 
 # Game logic
+print(game_art.title)
 player = input('\nPlease enter your name: ')
 
 print(f"\n----Welcome {player} - LET'S CATCH SOME POKEMON!----")
