@@ -78,6 +78,7 @@ while True:
     # Quit immediately.
     if command == '3':
         print("\nThanks for playing!")
+        print(game_art.charizard)
         break
     
     # Play the game.
