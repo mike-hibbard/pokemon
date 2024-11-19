@@ -92,7 +92,7 @@ while True:
     # Print pokemon caught so far
     elif command == '2':
         print("'\nYou have found...")
-        for pokemon in pokemon_caught:
+        for pokemon in sorted(pokemon_caught):
             print(pokemon)
 
     else:
