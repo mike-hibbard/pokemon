@@ -3,6 +3,7 @@
 """
 
 from pathlib import Path
+from die import Die
 import csv
 import random
 import game_art
@@ -51,6 +52,23 @@ def Find_Pokemon(pokemon_details):
     # print(pokemon)
     return pokemon
 
+# A function that catches a pokemon, using a dice roll
+def Catch_Pokemon(pokemon_found):
+
+    # A dice with sides == max 'total' of all pokemon
+    dice = Die(1250)
+    score = int(pokemon_found[2])
+
+    # Roll a number less than the pokemon title to catch it
+    if dice.roll() < score:
+        return True
+    
+    else:
+        return False
+    
+
+
+
 # Test
 # Find_Pokemon(pokemon_details)
 
@@ -86,8 +104,14 @@ while True:
         pokemon_found = Find_Pokemon(pokemon_details)
         print(f"\nYou found {pokemon_found[0]}!")
 
-       # Collect only the pokemon's name
-        pokemon_caught.append(pokemon_found[0])
+        # Try to catch the pokemon
+        caught = Catch_Pokemon(pokemon_found)
+
+        if caught:
+            # Collect only the pokemon's name
+            pokemon_caught.append(pokemon_found[0])
+            print(f"\nYou caught {pokemon_found[0]}!")
+
 
     # Print pokemon caught so far
     elif command == '2':
