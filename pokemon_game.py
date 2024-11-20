@@ -68,7 +68,14 @@ def Catch_Pokemon(pokemon_found):
         return False
     
 
-
+# A function that prints the main command menu:
+def Print_Main_Menu():
+    print("""
+      \nChoose an option
+          1 = Find a new pokemon
+          2 = List all pokemon captured
+          3 = Quit game
+      """)
 
 # Test
 # Find_Pokemon(pokemon_details)
@@ -85,12 +92,7 @@ pokemon_caught = []
 
 while True:
     
-    print("""
-      \nChoose an option
-          1 = Find a new pokemon
-          2 = List all pokemon captured
-          3 = Quit game
-      """)
+    Print_Main_Menu()
 
     command = input()
 
@@ -120,7 +122,7 @@ while True:
     # Print pokemon caught so far
     elif command == '2':
         time.sleep(1) # Sleep for 1 seconds
-        print("'\nSo far you have caught...")
+        print("\nSo far you have caught...")
         time.sleep(1) # Sleep for 1 seconds
         
         if len(pokemon_caught) == 0:
