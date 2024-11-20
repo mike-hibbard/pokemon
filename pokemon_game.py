@@ -120,10 +120,15 @@ while True:
     # Print pokemon caught so far
     elif command == '2':
         time.sleep(1) # Sleep for 1 seconds
-        print("'\nYou have found...")
+        print("'\nSo far you have caught...")
         time.sleep(1) # Sleep for 1 seconds
-        for pokemon in sorted(pokemon_caught):
-            print(pokemon)
+        
+        if len(pokemon_caught) == 0:
+            print("\n...nothing!  \nKeep looking!")
+        
+        else:
+            for pokemon in sorted(pokemon_caught):
+                print(pokemon)
 
     else:
         print("\nIncorrect command.")
