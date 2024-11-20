@@ -7,6 +7,7 @@ from die import Die
 import csv
 import random
 import game_art
+import time
 
 
 # Read and extract Pokemon database
@@ -95,12 +96,15 @@ while True:
 
     # Quit immediately.
     if command == '3':
+        time.sleep(1) # Sleep for 1 seconds
         print("\nThanks for playing!")
+        time.sleep(1) # Sleep for 1 seconds
         print(game_art.charizard)
         break
     
     # Play the game.
     elif command == '1':
+        time.sleep(1) # Sleep for 1 seconds
         pokemon_found = Find_Pokemon(pokemon_details)
         print(f"\nYou found {pokemon_found[0]}!")
 
@@ -115,7 +119,9 @@ while True:
 
     # Print pokemon caught so far
     elif command == '2':
+        time.sleep(1) # Sleep for 1 seconds
         print("'\nYou have found...")
+        time.sleep(1) # Sleep for 1 seconds
         for pokemon in sorted(pokemon_caught):
             print(pokemon)
 
@@ -128,14 +134,15 @@ while True:
 
  1.  Pokemon catch ratings run from 0 (hardest) to 255 (easiest).
  2.  Pokeballs reduce as follows:
-        - Pokeball:     -10
-        - Great ball:   -20
-        - Ultra ball:   -30
+        - Pokeball:     -100
+        - Great ball:   -200
+        - Ultra ball:   -300
+
  3.  Pokemon actions that further reduce catch ratings:
-        - Asleep:       -25
-        - Poison:       -25
-        - Injure:       -12
-        - Confuse;      -12
+        - Asleep:       -250
+        - Poison:       -250
+        - Injure:       -120
+        - Confuse;      -120
 
  There are 1250 Pokemon in total, each with a catch rating.
 
