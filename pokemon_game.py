@@ -53,9 +53,59 @@ def Find_Pokemon(pokemon_details):
     # print(pokemon)
     return pokemon
 
+# A function that returns a pokeball
+def Choose_Pokeball():
+
+    """Pokeballs reduce as follows:
+        - Pokeball:     -100
+        - Great ball:   -200
+        - Ultra ball:   -300
+
+    """
+
+    # Initialise Pokeballs.  Number reduces catch rate.
+    pokeballs = [
+        ("Poke ball", -100), 
+        ("Great ball", -200),
+        ("Ultra ball", -300),
+                 ]
+
+    # A dice with 3 sides == max 'total' of all pokemon
+    dice = Die(3)
+
+    # Randomly choose a ball
+    roll = dice.roll()
+
+    # Return the pokeball
+    return pokeballs[roll-1]
+
+
+
 # A function that catches a pokemon, using a dice roll
 def Catch_Pokemon(pokemon_found):
 
+    # First choose a pokeball.
+    pokeball = Choose_Pokeball()
+
+    # Print chosen ball name.
+    print("\nFirst, we need to choose a pokeball.")
+    time.sleep(0.5)
+    print("\nYou chose a...")
+    time.sleep(0.5)
+    print(f"\n{pokeball[0]}!")
+
+
+    """Second cast a spell.
+
+        Pokemon actions that further reduce catch ratings:
+        - Asleep:       -250
+        - Poison:       -250
+        - Injure:       -120
+        - Confuse;      -120
+
+    """
+
+    """Third roll the dice"""
     # A dice with sides == max 'total' of all pokemon
     dice = Die(1250)
     score = int(pokemon_found[2])
