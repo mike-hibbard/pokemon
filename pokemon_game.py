@@ -126,11 +126,16 @@ def Catch_Pokemon(pokemon_found):
     spell = Choose_Spell()
 
     # Print chosen spell name.
-    print("\nFirst, we need to choose a spell.")
-    time.sleep(0.5)
-    print("\nYou chose...")
-    time.sleep(0.5)
-    print(f"\n{spell[0]}!")
+    time.sleep(1.0)
+    print("\nNow, let's cast a spell...")
+    time.sleep(1.0)
+    print("\nYou cast the...")
+
+    # Create suspense!
+    for value in range(1, 4):
+        time.sleep(0.5)
+        print(".")
+    print(f"\n...{spell[0]} spell!")
 
 
         
@@ -187,6 +192,8 @@ while True:
     # Play the game.
     elif command == '1':
         time.sleep(1) # Sleep for 1 seconds
+        print("OK!  Let's go catch a Pokemon...")
+        time.sleep(1)
         pokemon_found = Find_Pokemon(pokemon_details)
         print(f"\nYou found {pokemon_found[0]}!")
 
