@@ -115,11 +115,14 @@ def Catch_Pokemon(pokemon_found):
 
     # Print chosen ball name.
     time.sleep(1.0)
-    print("\nFirst, we need to choose a pokeball.")
-    time.sleep(1.0)
-    print("\nYou chose a...")
-    time.sleep(1.0)
-    print(f"\n{pokeball[0]}!")
+    print("\nFirst, we need to choose a pokeball. ", end="", flush=True)
+    time.sleep(1.5)
+    print("You chose a", end="", flush=True) # Prints next statement in-line.
+    # Create suspense!
+    for value in range(1, 5):
+        time.sleep(0.75)
+        print(".", end="", flush=True)
+    print(f"{str.upper(pokeball[0])}!")
 
 
     # Second cast a spell.
@@ -127,18 +130,18 @@ def Catch_Pokemon(pokemon_found):
 
     # Print chosen spell name.
     time.sleep(1.0)
-    print("\nNow, let's cast a spell...")
-    time.sleep(1.0)
-    print("\nYou cast the...")
+    print("\nNow, let's cast a spell. ", end="", flush=True)
+    time.sleep(1.5)
+    print("You cast the", end="", flush=True)
 
     # Create suspense!
-    for value in range(1, 4):
-        time.sleep(0.5)
-        print(".")
-    print(f"\n...{spell[0]} spell!")
+    for value in range(1, 5):
+        time.sleep(0.75)
+        print(".", end="", flush=True)
+    print(f"{str.upper(spell[0])} spell!")
 
 
-        
+    #TODO - Add some user control here to roll the dice, maybe a graphic
 
     """Third roll the dice"""
     # A dice with sides == max 'total' of all pokemon
