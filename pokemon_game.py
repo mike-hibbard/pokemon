@@ -40,7 +40,7 @@ header_row = next(reader)
 # Extract pokemon name, type, total
 pokemon_details = []
 for row in reader:
-    pokemon = (row[1],row[3],row[5])
+    pokemon = (row[1],row[3],int(row[5]))
     pokemon_details.append(pokemon)
 
 # A function that prints a pokemon's details
@@ -128,10 +128,8 @@ def Catch_Pokemon(pokemon_found):
     Show_Pokemon_Details(pokemon_found)
 
     # Get/set the catch-rate
-    pokemon_name = pokemon_found[0]
     catch_rate = pokemon_found[2]
     
-
     # First choose a pokeball.
     pokeball = Choose_Pokeball()
 
@@ -146,6 +144,9 @@ def Catch_Pokemon(pokemon_found):
         print(".", end="", flush=True)
     print(f"{str.upper(pokeball[0])}!")
 
+    # Reduce the catch-rate for the pokeball, print
+    catch_rate += pokeball[1]
+    print(f"Catch rate reduced!  Catch-rate is now {str(catch_rate)}")
 
     # Second cast a spell.
     spell = Choose_Spell()
@@ -162,7 +163,10 @@ def Catch_Pokemon(pokemon_found):
         print(".", end="", flush=True)
     print(f"{str.upper(spell[0])} spell!")
 
-    #TODO - Calculate and show catch-rate.
+    # Reduce the catch-rate for the spell, print
+    catch_rate += spell[1]
+    print(f"Catch rate reduced!  Catch-rate is now {catch_rate}")
+
 
     #TODO - Add some user control here to roll the dice, maybe a graphic
 
