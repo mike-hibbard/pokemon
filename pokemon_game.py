@@ -79,6 +79,32 @@ def Choose_Pokeball():
     # Return the pokeball
     return pokeballs[roll-1]
 
+# A function that casts a spell
+def Choose_Spell():
+
+    """Pokemon actions that further reduce catch ratings:
+        - Asleep:       -250
+        - Poison:       -250
+        - Injure:       -120
+        - Confuse;      -120
+    """
+
+    # Initialise Sells.  Number reduces catch rate.
+    spells = [
+        ("Asleep", -250), 
+        ("Poison", -250),
+        ("Injure", -120),
+        ("Confuse", -120),
+                 ]
+
+    # A dice with 3 sides == max 'total' of all pokemon
+    dice = Die(4)
+
+    # Randomly choose a ball
+    roll = dice.roll()
+
+    # Return the spell
+    return spells[roll-1]
 
 
 # A function that catches a pokemon, using a dice roll
@@ -88,22 +114,26 @@ def Catch_Pokemon(pokemon_found):
     pokeball = Choose_Pokeball()
 
     # Print chosen ball name.
+    time.sleep(1.0)
     print("\nFirst, we need to choose a pokeball.")
-    time.sleep(0.5)
+    time.sleep(1.0)
     print("\nYou chose a...")
-    time.sleep(0.5)
+    time.sleep(1.0)
     print(f"\n{pokeball[0]}!")
 
 
-    """Second cast a spell.
+    # Second cast a spell.
+    spell = Choose_Spell()
 
-        Pokemon actions that further reduce catch ratings:
-        - Asleep:       -250
-        - Poison:       -250
-        - Injure:       -120
-        - Confuse;      -120
+    # Print chosen spell name.
+    print("\nFirst, we need to choose a spell.")
+    time.sleep(0.5)
+    print("\nYou chose...")
+    time.sleep(0.5)
+    print(f"\n{spell[0]}!")
 
-    """
+
+        
 
     """Third roll the dice"""
     # A dice with sides == max 'total' of all pokemon
