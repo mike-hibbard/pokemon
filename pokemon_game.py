@@ -43,7 +43,21 @@ for row in reader:
     pokemon = (row[1],row[3],row[5])
     pokemon_details.append(pokemon)
 
-# print(pokemon_details[0])
+# A function that prints a pokemon's details
+def Show_Pokemon_Details(pokemon):
+    
+    pokemon_name = pokemon[0]
+    pokemon_type = pokemon[1]
+    pokemon_catch_rate = pokemon[2]
+
+    print(f"""
+-------------------------------
+Name        | {pokemon_name}
+Type        | {pokemon_type}
+Catch Rate  | {pokemon_catch_rate}
+-------------------------------
+""")
+
 
 # A function that randomly chooses a pokemon
 def Find_Pokemon(pokemon_details):
@@ -110,6 +124,14 @@ def Choose_Spell():
 # A function that catches a pokemon, using a dice roll
 def Catch_Pokemon(pokemon_found):
 
+    # Show Pokemon details
+    Show_Pokemon_Details(pokemon_found)
+
+    # Get/set the catch-rate
+    pokemon_name = pokemon_found[0]
+    catch_rate = pokemon_found[2]
+    
+
     # First choose a pokeball.
     pokeball = Choose_Pokeball()
 
@@ -140,6 +162,7 @@ def Catch_Pokemon(pokemon_found):
         print(".", end="", flush=True)
     print(f"{str.upper(spell[0])} spell!")
 
+    #TODO - Calculate and show catch-rate.
 
     #TODO - Add some user control here to roll the dice, maybe a graphic
 
