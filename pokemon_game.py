@@ -170,6 +170,8 @@ def Catch_Pokemon(pokemon_found):
 
     #TODO - Add some user control here to roll the dice, maybe a graphic
 
+    #TODO - Reduce die to be 800-sided + reduce outlier in data
+
     """Third roll the dice"""
     # A dice with sides == max 'total' of all pokemon
     dice = Die(1250)
