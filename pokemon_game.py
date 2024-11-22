@@ -146,7 +146,7 @@ def Catch_Pokemon(pokemon_found):
 
     # Reduce the catch-rate for the pokeball, print
     catch_rate += pokeball[1]
-    print(f"Catch rate reduced!  Catch-rate is now {str(catch_rate)}")
+    print(f"Catch rate reduced!  Catch rate is now {str(catch_rate)}")
 
     # Second cast a spell.
     spell = Choose_Spell()
@@ -165,7 +165,7 @@ def Catch_Pokemon(pokemon_found):
 
     # Reduce the catch-rate for the spell, print
     catch_rate += spell[1]
-    print(f"Catch rate reduced!  Catch-rate is now {catch_rate}")
+    print(f"Catch rate reduced!  Catch rate is now {catch_rate}")
 
 
     #TODO - Add some user control here to roll the dice, maybe a graphic
@@ -173,10 +173,9 @@ def Catch_Pokemon(pokemon_found):
     """Third roll the dice"""
     # A dice with sides == max 'total' of all pokemon
     dice = Die(1250)
-    score = int(pokemon_found[2])
 
     # Roll a number less than the pokemon title to catch it
-    if dice.roll() < score:
+    if dice.roll() > catch_rate:
         return True
     
     else:
