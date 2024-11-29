@@ -159,7 +159,11 @@ def Catch_Pokemon(pokemon_found):
 
     # Reduce the catch-rate for the spell, print
     catch_rate += spell[1]
-    print(f"Catch rate reduced!  Catch rate is now {catch_rate}")
+
+    # Set a floor of zero for catch-rate
+    if catch_rate < 0:
+        catch_rate = 0
+    print(f"Catch rate reduced!  Catch rate is now {catch_rate}.")
 
 
     #TODO - Add some user control here to roll the dice, maybe a graphic
