@@ -67,8 +67,8 @@ def Find_Pokemon(pokemon_details):
     # print(pokemon)
     return pokemon
 
-# A function that returns a pokeball
-def Choose_Pokeball():
+# A function that returns a pokeball.
+def Choose_Pokeball(mode="dice"):
 
     """Pokeballs reduce as follows:
         - Pokeball, Great ball, Ultra ball
@@ -81,14 +81,17 @@ def Choose_Pokeball():
         ("Ultra ball", -150),
                  ]
 
-    # A dice with 3 sides == max 'total' of all pokemon
-    dice = Die(3)
+    """Dice-driven selection"""
+    if mode == "dice":
+        dice = Die(3)
 
-    # Randomly choose a ball
-    roll = dice.roll()
+        # Randomly choose a ball
+        roll = dice.roll()
 
-    # Return the pokeball
-    return pokeballs[roll-1]
+        # Return the pokeball
+        return pokeballs[roll-1]
+    
+    #TODO add else condition to handle 'user' mode
 
 # A function that casts a spell
 def Choose_Spell():
