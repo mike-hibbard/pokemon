@@ -241,6 +241,11 @@ while True:
             pokemon_caught.append(pokemon_found[0])
             print(f"\nYou caught {pokemon_found[0]}!")
 
+        elif not caught:
+            # Print a message.
+            print(f"\nYou rolled too low...{pokemon_found} escaped.  Keep trying!")
+        
+
 
     # Print pokemon caught so far
     elif command == '2':
