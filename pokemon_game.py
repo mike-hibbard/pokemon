@@ -175,7 +175,10 @@ def Catch_Pokemon(pokemon_found):
     dice = Die(800)
 
     # Roll a number less than the pokemon title to catch it
-    if dice.roll() > catch_rate:
+    roll = dice.roll()
+    print(f"You rolled {roll}.")
+    if roll > catch_rate:
+
         return True
     
     else:
