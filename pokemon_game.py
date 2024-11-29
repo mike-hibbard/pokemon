@@ -71,17 +71,14 @@ def Find_Pokemon(pokemon_details):
 def Choose_Pokeball():
 
     """Pokeballs reduce as follows:
-        - Pokeball:     -100
-        - Great ball:   -200
-        - Ultra ball:   -300
-
+        - Pokeball, Great ball, Ultra ball
     """
 
     # Initialise Pokeballs.  Number reduces catch rate.
     pokeballs = [
-        ("Poke ball", -100), 
-        ("Great ball", -200),
-        ("Ultra ball", -300),
+        ("Poke ball", -50), 
+        ("Great ball", -100),
+        ("Ultra ball", -150),
                  ]
 
     # A dice with 3 sides == max 'total' of all pokemon
@@ -97,18 +94,15 @@ def Choose_Pokeball():
 def Choose_Spell():
 
     """Pokemon actions that further reduce catch ratings:
-        - Asleep:       -250
-        - Poison:       -250
-        - Injure:       -120
-        - Confuse;      -120
+        - Asleep, Poison, Injure, Confuse
     """
 
     # Initialise Sells.  Number reduces catch rate.
     spells = [
-        ("Asleep", -250), 
-        ("Poison", -250),
-        ("Injure", -120),
-        ("Confuse", -120),
+        ("Asleep", -100), 
+        ("Poison", -100),
+        ("Injure", -50),
+        ("Confuse", -50),
                  ]
 
     # A dice with 3 sides == max 'total' of all pokemon
