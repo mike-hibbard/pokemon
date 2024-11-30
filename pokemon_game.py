@@ -68,7 +68,7 @@ def Find_Pokemon(pokemon_details):
     return pokemon
 
 # A function that returns a pokeball.
-def Choose_Pokeball(mode="dice"):
+def Choose_Pokeball(method):
 
     """Pokeballs reduce as follows:
         - Pokeball, Great ball, Ultra ball
@@ -80,9 +80,12 @@ def Choose_Pokeball(mode="dice"):
         ("Great ball", -100),
         ("Ultra ball", -150),
                  ]
+    
+    time.sleep(1.0)
+    print("\nFirst, we need to choose a pokeball.")
 
-    """Dice-driven selection"""
-    if mode == "dice":
+    # Dice-driven selection
+    if method == "dice":
         dice = Die(3)
 
         # Randomly choose a ball
@@ -91,7 +94,32 @@ def Choose_Pokeball(mode="dice"):
         # Return the pokeball
         return pokeballs[roll-1]
     
-    #TODO add else condition to handle 'user' mode
+    # User-driven selection
+    elif method == "user":
+        print(
+"""
+\n
+----------------
+Choose a pokeball
+----------------
+[1] Pokeball
+[2] Great Ball
+[3] Ultra Ball
+""")
+        not_chosen = True
+
+        while not_chosen:
+            selection = input("\nWhich Pokeball will you use...? ")
+
+            if int(selection) == 1 or selection == 2 or selection == 3:
+                not_chosen = False
+            else:
+                print("Incorrect Entry, try again")
+        
+        return pokeballs[int(selection)-1]   # zero-indexed based return values
+
+            #chosen_pokeball = Choose_Pokeball()
+            #return pokeballs[chosen_pokeball]
 
 # A function that casts a spell
 def Choose_Spell():
@@ -128,11 +156,9 @@ def Catch_Pokemon(pokemon_found):
     catch_rate = pokemon_found[2]
     
     # First choose a pokeball.
-    pokeball = Choose_Pokeball()
+    pokeball = Choose_Pokeball("user")
 
     # Print chosen ball name.
-    time.sleep(1.0)
-    print("\nFirst, we need to choose a pokeball. ", end="", flush=True)
     time.sleep(1.5)
     print("You chose a", end="", flush=True) # Prints next statement in-line.
     # Create suspense!
