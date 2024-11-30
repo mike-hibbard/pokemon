@@ -270,7 +270,7 @@ while True:
 
         elif not caught:
             # Print a message.
-            print(f"\nYou rolled too low...{pokemon_found} escaped.  Keep trying!")
+            print(f"\nYou rolled too low...{pokemon_found[0]} escaped.  Keep trying!")
         
 
 
