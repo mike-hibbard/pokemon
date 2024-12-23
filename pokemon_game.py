@@ -229,6 +229,8 @@ def Catch_Pokemon(pokemon_found):
 
     # Roll a number less than the pokemon title to catch it
     roll = dice.roll()
+
+    time.sleep(1)
     print(f"You rolled {roll}.")
     if roll > catch_rate:
 
@@ -289,10 +291,15 @@ while True:
         # Try to catch the pokemon
         caught = Catch_Pokemon(pokemon_found)
 
+        time.sleep(1)
+
         if caught:
             # Collect only the pokemon's name
             pokemon_caught.append(pokemon_found[0])
+            
+            print(f"\n------------------------------")
             print(f"\nYou caught {pokemon_found[0]}!")
+            print(f"\n------------------------------")
 
         elif not caught:
             # Print a message.
