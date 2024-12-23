@@ -111,7 +111,7 @@ Choose a pokeball
         while not_chosen:
             selection = input("\nWhich Pokeball will you use...? ")
 
-            if int(selection) == 1 or selection == 2 or selection == 3:
+            if int(selection) == 1 or int(selection) == 2 or int(selection) == 3:
                 not_chosen = False
             else:
                 print("Incorrect Entry, try again")
