@@ -122,7 +122,7 @@ Choose a pokeball
             #return pokeballs[chosen_pokeball]
 
 # A function that casts a spell
-def Choose_Spell():
+def Choose_Spell(method):
 
     """Pokemon actions that further reduce catch ratings:
         - Asleep, Poison, Injure, Confuse
@@ -136,14 +136,40 @@ def Choose_Spell():
         ("Confuse", -50),
                  ]
 
-    # A dice with 3 sides == max 'total' of all pokemon
-    dice = Die(4)
+    if method == 'dice':
+        # A dice with 3 sides == max 'total' of all pokemon
+        dice = Die(4)
 
-    # Randomly choose a ball
-    roll = dice.roll()
+        # Randomly choose a ball
+        roll = dice.roll()
 
-    # Return the spell
-    return spells[roll-1]
+        # Return the spell
+        return spells[roll-1]
+
+   # User-driven selection
+    elif method == "user":
+        print(
+"""
+\n
+----------------
+Choose a spell
+----------------
+[1] Asleep
+[2] Poison
+[3] Injure
+[4] Confuse
+""")
+        not_chosen = True
+
+        while not_chosen:
+            selection = input("\nWhich Spell will you use...? ")
+
+            if int(selection) == 1 or int(selection) == 2 or int(selection) == 3 or int(selection) == 4:
+                not_chosen = False
+            else:
+                print("Incorrect Entry, try again")
+        
+        return spells[int(selection)-1]   # zero-indexed based return values
 
 
 # A function that catches a pokemon, using a dice roll
@@ -172,7 +198,7 @@ def Catch_Pokemon(pokemon_found):
     print(f"Catch rate reduced!  Catch rate is now {str(catch_rate)}")
 
     # Second cast a spell.
-    spell = Choose_Spell()
+    spell = Choose_Spell("user")
 
     # Print chosen spell name.
     time.sleep(1.0)
